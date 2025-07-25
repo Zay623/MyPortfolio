@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html{
+            font-size: 62.5;  
+        }
+
+        body{
+            width:100%;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: #0a0104;
+            color:white;
+        }
+
+        header{
+            margin-top: 20px;
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding:1rem 9%;
+            background-color: transparent;
+            filter: drop-shadow(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo{
+            font-size: 3rem;
+            color: #dc4034;
+            font-weight: 800;
+            cursor:pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover{
+            transform: scale(1.1);
+        }
+
+        nav a{
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active{
+            color:#dc4034;
+            border-bottom: 3px solid #dc4034;
+        }
+
+        @media(max-width:995px){
+            nav{
+                position:absolute;
+                top: 100%;
+                right:0;
+                width:40%;
+                border-left: 3px solid #dc4034;
+                border-bottom: 3px solid #dc4034;
+                border-bottom-left-radius: 2rem;
+                padding:1rem solid;
+                background-color: #0a0104;
+                border-top: 0.1rem solid rgba(0,0,0,0.1);
+            }
+
+            nav.active{
+                display:block;
+            }
+
+            nav a{
+                display: block;
+                font-size: 2rem;
+                margin:3rem 0;
+            }
+
+            nav a:hover,
+            nav a.active{
+                padding: 1rem;
+                border-radius: 0.5rem;
+                border-bottom: 0.5rem solid #dc4034;
+            }
+        }
+
+        section{
+            min-height: 100vh;;
+            padding:5rem 9% 5rem
+        }
+
+        .home{
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            gap:8rem;
+            background-color: #0a0104;
+        }
+
+        .home.home-content h1{
+            font-size:6rem;
+            font-weight:700;
+            line-height:1.3;
+        }
+
+        span{
+            color:#dc4034;
+        }
+        
+        .home-content h3{
+            font-size:4rem;
+            margin-bottom:1rem;
+            font-weight: 700;
+        }
+
+        .home-img{
+            border-radius:50%;
+        }
+
+        .home-img img{
+            position: relative;
+            width: 32vw;
+            border-radius:50%;
+            box-shadow:0 0 25px solid #dc4034;
+            cursor:pointer;
+            transition: 0.2s linear;
+        }
+
+        .home-img img:hover{
+            font-size:1.8rem;
+            font-weight:500;
+        }
+
+        .social-icons a {
+            display:inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: transparent;
+            border:0.2rem solid #dc4034;
+            font-size: 2rem;
+            border-radius: 50%;
+            margin:3rem 1.5rem 3rem;
+            transition: 0.3s ease;
+            color: white;
+        }
+
+        .social-icons a:hover{
+            color: black;
+            transform: scale(1.3) translateY(-5px);
+            background-color: #dc4034;
+            box-shadow:0 0 25px #dc4034;
+        }
+
+        .typing-text{
+            font-size:34px;
+            font-weight:600;
+            min-width:280px;
+        }
+
+        .typing-text span{
+            position:relative;
+        }
+
+        .heading{
+            color: #dc4034;
+            font-size:34px;
+            font-weight:600;
+
+        }
+
+        .About .About-info{
+            font-size:34px;
+            font-weight:600;
+        }
+
+        @media(max-width:895px){
+            .section h2{
+                margin-bottom: 3rem;
+            }
+        }
+
+        .skills{
+            background-color: var(--bg-color);
+        }
+
+        .skills .container{
+            background-color: white;
+            color: var(--text-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 70%;
+            margin: auto;
+            margin-top: 2rem;
+        }
+
+        .skills .container .row{
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            flex-wrap:wrap;
+            gap:1.8rem
+        }
+
+        .skills .container .bar{
+            margin-bottom:15px;
+            padding: 10px;
+            border-radius: 1rem;
+            background:var(--bg-color);
+            transition: 0.3s ease;
+        }
+
+        .skills .container .bar:hover{
+            box-shadow: 0 4px 10px var(--main-color);
+        }
+        .skills .container .bar .info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .skills .container .bar .info span{
+            font-size: 2rem;
+            font-weight:500;
+            margin-left: 0.5rem;
+        }
+
+        .headding{
+            color: #dc4034;
+            font-size:34px;
+            font-weight:600;
+            align-items: center;
+        }
+
+        .tsc-logo{
+            border-radius:50%;
+        }
+
+        .tsc-logo img{
+            position: relative;
+            width: 32vw;
+            border-radius:50%;
+            box-shadow:0 0 25px solid #dc4034;
+            cursor:pointer;
+            transition: 0.2s linear;
+        }
+
+        .tsc-logo img:hover{
+            font-size:1.8rem;
+            font-weight:500;
+        }
+
+        .contact h2 {
+            margin-bottom: 3rem; 
+            color:white;
+        }
+
+        .contact form {
+            max-width: 70rem; 
+            margin: 1rem auto; 
+            margin-bottom: 3rem; 
+            text-align: center;
+        }
+        .contact form .input-box { 
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact form .input-box input,
+        .contact form textarea { 
+            width: 100%;
+            padding: 1.5rem; 
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--bg-color); 
+            border-radius: 0.8rem;
+            border: 2px solid var(--main-color);
+            margin: 1rem 0;
+            resize: none;
+        }
+        .contact form .btn{
+            margin-top: 2rem;
+        }
+
+        .footer{
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            padding: 40px 0;
+            background-color: black;
+        }
+        .footer .social { 
+            text-align: center; 
+            padding-bottom: 25px;
+            color: black;
+        }
+        .footer .social a {
+            display:inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: transparent;
+            border:0.2rem solid #dc4034;
+            font-size: 2rem;
+            border-radius: 50%;
+            margin:3rem 1.5rem 3rem;
+            transition: 0.3s ease;
+            color: white;
+        }
+
+        .footer .sosial a:hover{
+            color: black;
+            transform: scale(1.3) translateY(-5px);
+            background-color: #dc4034;
+            box-shadow:0 0 25px #dc4034;
+        }
+
+        .footer .copyright{
+            margin-top: 50px;
+            text-align: center;
+            font-size: 16px;
+            color: #dc4034;
+        }
+
+        @media(max-width:1285px) {
+            html{
+                font-size: 55%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">TWZ</a>
+
+        <nav>
+            <a href="#Home" class="active">Home</a>
+            <a href="#About" >About</a>
+            <a href="#portfolio" >Portfolio</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="zhe photo.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>I'M <span>TAN WEI ZHE</span></h1>
+            <p>TODAY IM GONNA INTRODUCTION</p>
+            <h3 class="typing-text">MY PORTFOLIO</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/ahzhe0623/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/topskillscollege"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="About" id="About"><center>
+        <h2 class="heading">About Me</h2>
+                <div class="About-info">
+                    <h4>Programmer</h4>
+                    <p>I am student Programming and Multimedia for Top Skills College</p><br>
+                    <div class="tsc-logo">
+                        <a href="https://topacademy.edu.my/"><img src="tsc-logo-new (1).png" width="400" alt=""></a>
+                    </div>
+                </div>
+    </section></center>
+
+    <section class="skills" id="skills">
+        <h2 class="headding">Skills</h2>
+        <div class="container">
+            <div class="row" id="skillsContainer">
+                <div class="bar">
+                <div class="info">
+                    <img src="Screenshot_2024-08-28_170043-removebg-preview.png"/>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="portfolio" id="portfolio"><center>
+        <h2>Portfolio</h2><br>
+        <a href="zhe photoshop.png"><img src="1.png"></a>
+        <p>This is my Photoshop work</p><br>
+        <a href="LOGO TK.png"><img src="LOGO TK.png"width="600" height="600"></a>
+        <p>This is my Adobe Illustrator work</p><br><br>
+
+
+    <div style="display: flex; gap: 20px;">
+    <video width="600" controls>
+      <source src="sample car.mp4" type="video/mp4">
+    </video>
+
+    <!-- 第二个视频 -->
+    <video width="600" controls>
+      <source src="WeChat_20250725114456.mp4" type="video/mp4">
+    </video>
+    </div>
+
+    <p>This is my CapCut Work.</p> </center>
+</section>
+    </section>
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.instagram.com/ahzhe0623/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/topskillscollege"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <p class="copyright">© 2024 | TAN WEI ZHE</p>
+
+        
+
+</footer>
+</body>
+</html>
